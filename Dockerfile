@@ -15,6 +15,7 @@ RUN make build -e GIT_TAG_OVERRIDE=${GIT_TAG_OVERRIDE} && bin/k3d version
 # -> k3d + some tools in a docker-in-docker container #
 # -> used e.g. in our CI pipelines for testing        #
 #######################################################
+# Not changing this name so I don't break everything everywhere
 FROM ubuntu:22.04 as dind
 ARG OS
 ARG ARCH

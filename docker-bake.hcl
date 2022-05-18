@@ -14,12 +14,12 @@ target "default-release-options" {
   platforms = ["linux/amd64", "linux/arm64", "linux/arm/v7"]
 }
 
-target "binary" {
-  inherits = ["default-release-options", "docker-metadata-k3d"]
-  dockerfile = "Dockerfile"
-  context = "."
-  target = "binary-only"
-}
+// target "binary" {
+//   inherits = ["default-release-options", "docker-metadata-k3d"]
+//   dockerfile = "Dockerfile"
+//   context = "."
+//   target = "binary-only"
+// }
 
 target "dind" {
   inherits = ["docker-metadata-k3d-dind"] // dind does not inherit defaults, as dind base image is not available for armv7
