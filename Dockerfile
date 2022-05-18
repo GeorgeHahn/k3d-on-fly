@@ -45,12 +45,12 @@ RUN apt-get update && \
 # install yq (yaml processor) from source, as the busybox yq had some issues
 RUN /scripts/install-tools.sh kubectl yq
 
-COPY --from=builder /app/bin/k3d /bin/k3d
+# COPY --from=builder /app/bin/k3d /bin/k3d
 
 #########################################
 # binary-only                           #
 # -> only the k3d binary.. nothing else #
 #########################################
-FROM scratch as binary-only
-COPY --from=builder /app/bin/k3d /bin/k3d
-ENTRYPOINT ["/bin/k3d"]
+# FROM scratch as binary-only
+# COPY --from=builder /app/bin/k3d /bin/k3d
+ENTRYPOINT ["/app/bin/k3d"]
